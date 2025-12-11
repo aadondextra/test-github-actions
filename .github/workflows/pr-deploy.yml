@@ -119,11 +119,21 @@ jobs:
             exit 1
           }
           
+          # Get user ID from secrets (you need to add ONEDRIVE_USER_ID secret)
+          $userId = "${{ secrets.ONEDRIVE_USER_ID }}"
+          
+          if ([string]::IsNullOrEmpty($userId)) {
+            Write-Error "ONEDRIVE_USER_ID secret is required. Add your user email or ID to GitHub secrets."
+            Write-Host "Example: user@company.com or user-id-guid"
+            exit 1
+          }
+          
           $cleanFolderPath = "${{ env.ONEDRIVE_FOLDER }}".Trim('/').Trim('\')
           $oneDrivePath = "$cleanFolderPath/$fileName"
-          $uri = "https://graph.microsoft.com/v1.0/me/drive/root:/$($oneDrivePath):/content"
+          $uri = "https://graph.microsoft.com/v1.0/users/$userId/drive/root:/$($oneDrivePath):/content"
 
           Write-Host "Uploading $fileName to OneDrive..."
+          Write-Host "User: $userId"
           Write-Host "Destination: $oneDrivePath"
           
           $fileContent = [System.IO.File]::ReadAllBytes($appPath)
