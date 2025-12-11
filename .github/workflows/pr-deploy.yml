@@ -15,10 +15,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: List files (debug)
+        run: |
+          Write-Host "Current directory:"
+          Get-Location
+          Write-Host "`nFiles in root:"
+          Get-ChildItem
+          Write-Host "`nLooking for app.json:"
+          Get-ChildItem -Recurse -Filter "app.json" | Select-Object FullName
+
       - name: Increment Version
         id: version
         run: |
-          $appJson = Get-Content "app.json" -Raw | ConvertFrom-Json
+          # Find app.json location
+          if (Test-Path "app.json") {
+            $appJsonPath = "app.json"
+          } elseif (Test-Path "PurchaseOrder/app.json") {
+            $appJsonPath = "PurchaseOrder/app.json"
+            Set-Location "PurchaseOrder"
+          } else {
+            Write-Error "app.json not found"
+            exit 1
+          }
+          
+          $appJson = Get-Content $appJsonPath -Raw | ConvertFrom-Json
           $version = [Version]$appJson.version
           Write-Host "Current version: $($version.ToString())"
           
