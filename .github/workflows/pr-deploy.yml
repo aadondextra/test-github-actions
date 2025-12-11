@@ -121,7 +121,7 @@ jobs:
           
           $cleanFolderPath = "${{ env.ONEDRIVE_FOLDER }}".Trim('/').Trim('\')
           $oneDrivePath = "$cleanFolderPath/$fileName"
-          $uri = "https://graph.microsoft.com/v1.0/me/drive/root:/$oneDrivePath:/content"
+          $uri = "https://graph.microsoft.com/v1.0/me/drive/root:/$($oneDrivePath):/content"
 
           Write-Host "Uploading $fileName to OneDrive..."
           Write-Host "Destination: $oneDrivePath"
