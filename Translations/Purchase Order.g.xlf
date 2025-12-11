@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="Purchase Order">
+    <body>
+      <group id="body">
+        <!-- Table 50120: Purchase Order Header -->
+        <trans-unit id="Table 3402317741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Header</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 3899582225 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 2509588546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field Vendor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 2743655223 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field Vendor Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 887692732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field Order Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 3398736623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expected Receipt Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field Expected Receipt Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 4130576677 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field Total Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 1295433849 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 1295433849 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open,Released,Completed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field Status - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317741 - Field 4132939922 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Header - Field No. Series - Property Caption</note>
+        </trans-unit>
+
+        <!-- Table 50121: Purchase Order Line -->
+        <trans-unit id="Table 3402317742 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 2509588546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 2812166907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 3854975025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 3854975025 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source> ,Item,Resource,Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 3899582225 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 4252293381 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 4087908969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 3576178067 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Unit Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 3149287881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3402317742 - Field 3576178068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Purchase Order Line - Field Unit of Measure - Property Caption</note>
+        </trans-unit>
+
+        <!-- Page 50122: Purchase Order Card -->
+        <trans-unit id="Page 3402317744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 1158882815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 3899582225 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 2509588546 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 2743655223 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor name.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control Vendor Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 887692732 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the order date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control Order Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 3398736623 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the expected receipt date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control Expected Receipt Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 1295433849 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Control 4130576677 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total amount of all lines.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Control Total Amount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Action 1897182615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Action Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Action 1897182615 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print the purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Action Print - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Action 3879419738 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Action Release - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Action 3879419738 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Release the purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Action Release - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Action 2778997863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reopen</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Action Reopen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Action 2778997863 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reopen the purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Action Reopen - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317744 - Action 1897182616 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Card - Action Group Process - Property Caption</note>
+        </trans-unit>
+
+        <!-- Page 50123: Purchase Orders List -->
+        <trans-unit id="Page 3402317745 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Orders List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317745 - Action 1158882817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Orders List - Action NewOrder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317745 - Action 1158882817 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a new purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Orders List - Action NewOrder - Property ToolTip</note>
+        </trans-unit>
+
+        <!-- Page 50124: Purchase Order Subpage -->
+        <trans-unit id="Page 3402317746 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317746 - Control 3854975025 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317746 - Control 3899582225 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317746 - Control 4252293381 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the description.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317746 - Control 4087908969 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the quantity.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Control Quantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317746 - Control 3576178068 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unit of measure.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Control Unit of Measure - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317746 - Control 3576178067 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unit price.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Control Unit Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3402317746 - Control 3149287881 - Property 1295482071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the total amount.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Purchase Order Subpage - Control Amount - Property ToolTip</note>
+        </trans-unit>
+
+        <!-- Report 50125: Purchase Order Report -->
+        <trans-unit id="Report 3402317747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317747 - NamedType 2509588546" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Label OrderNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317747 - NamedType 2509588547" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Label VendorNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317747 - NamedType 2743655223" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Label VendorNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317747 - NamedType 887692732" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Label OrderDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317747 - NamedType 3398736623" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expected Receipt Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Label ExpectedReceiptDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317747 - NamedType 1295433849" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Label StatusLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317747 - NamedType 4130576677" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Report - Label TotalAmountLbl</note>
+        </trans-unit>
+
+        <!-- Report 50126: Purchase Order Grouped Report -->
+        <trans-unit id="Report 3402317748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Order Grouped</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317748 - NamedType 3854975025" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Label TypeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317748 - NamedType 3899582226" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Label ItemNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317748 - NamedType 4252293381" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Label DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317748 - NamedType 4087908969" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Label QuantityLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317748 - NamedType 3576178068" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Label UnitOfMeasureLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317748 - NamedType 3576178067" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Label UnitPriceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3402317748 - NamedType 3149287881" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Purchase Order Grouped Report - Label AmountLbl</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
