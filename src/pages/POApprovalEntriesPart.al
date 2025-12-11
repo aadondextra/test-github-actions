@@ -14,7 +14,7 @@ page 50130 "PO Approval Entries Part"
                 field("Approver User ID"; Rec."Approver User ID")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the approver';
+                    ToolTip = 'Specify the approver';
                 }
 
                 field("Approval Status"; Rec."Approval Status")
