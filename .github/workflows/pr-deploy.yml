@@ -28,20 +28,25 @@ jobs:
         id: version
         run: |
           $appJsonPath = "app.json"
+          
           if (-not (Test-Path $appJsonPath)) {
             Write-Error "app.json not found at: $appJsonPath"
             Get-ChildItem -Recurse -Filter "app.json" | ForEach-Object { Write-Host "Found: $($_.FullName)" }
             exit 1
           }
+          
           Write-Host "Reading app.json from: $appJsonPath"
           $appJson = Get-Content $appJsonPath -Raw | ConvertFrom-Json
           $version = [Version]$appJson.version
           Write-Host "Current version: $($version.ToString())"
+          
           $newVersion = New-Object Version($version.Major, $version.Minor, ($version.Build + 1), $version.Revision)
           Write-Host "New version: $($newVersion.ToString())"
+          
           $appJson.version = $newVersion.ToString()
           $appJson | ConvertTo-Json -Depth 10 | Set-Content $appJsonPath -Encoding UTF8
           Write-Host "Version updated in $appJsonPath"
+          
           echo "APP_VERSION=$($newVersion.ToString())" >> $env:GITHUB_ENV
           echo "APP_NAME=$($appJson.publisher)_$($appJson.name)_$($newVersion.ToString()).app" >> $env:GITHUB_ENV
 
@@ -60,19 +65,23 @@ jobs:
       - name: Compile BC App
         run: |
           Write-Host "Compiling Business Central Application..."
+          
           if (Test-Path "app.json") {
             $appJson = Get-Content "app.json" -Raw | ConvertFrom-Json
             Write-Host "Publisher: $($appJson.publisher)"
             Write-Host "App Name: $($appJson.name)"
           }
           Write-Host "Version: $env:APP_VERSION"
+          
           # Buscar archivo .app recursivamente
           Write-Host "Searching for .app files..."
           $existingApp = Get-ChildItem -Path . -Filter "*.app" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1
+          
           if ($existingApp) {
             Write-Host "✓ App file found at: $($existingApp.FullName)"
             $newAppName = $env:APP_NAME
             $outputPath = $newAppName
+            
             Copy-Item $existingApp.FullName $outputPath -Force
             Write-Host "✓ Copied and renamed app to: $newAppName"
           } else {
@@ -81,6 +90,7 @@ jobs:
             Get-ChildItem -Recurse | Select-Object FullName | Format-Table
             exit 1
           }
+          
           echo "APP_PATH=$newAppName" >> $env:GITHUB_ENV
 
       - name: Get OAuth2 Token from Microsoft Graph
@@ -103,28 +113,63 @@ jobs:
           $token = $token.Trim()
           $fileName = $env:APP_NAME
           $appPath = $env:APP_PATH
-
+          
           if (-not (Test-Path $appPath)) {
             Write-Error "App file not found: $appPath"
             exit 1
           }
-
+          
+          $userEmail = "${{ secrets.ONEDRIVE_USER_ID }}"
+          
+          if ([string]::IsNullOrEmpty($userEmail)) {
+            Write-Error "ONEDRIVE_USER_ID secret is required."
+            exit 1
+          }
+          
+          Write-Host "Getting Drive ID for user: $userEmail"
+          
+          # First, get the drive ID from the user email
+          try {
+            $drivesResponse = Invoke-RestMethod `
+              -Uri "https://graph.microsoft.com/v1.0/users/$userEmail/drives" `
+              -Headers @{ Authorization = "Bearer $token" } `
+              -Method GET
+            
+            if ($drivesResponse.value -and $drivesResponse.value.Count -gt 0) {
+              $driveId = $drivesResponse.value[0].id
+              Write-Host "✓ Drive ID found: $driveId"
+            } else {
+              Write-Error "No drives found for user $userEmail"
+              exit 1
+            }
+          } catch {
+            Write-Error "Failed to get drive ID: $($_.Exception.Message)"
+            Write-Host "Make sure the user has OneDrive provisioned and app has Sites.Read.All permission"
+            exit 1
+          }
+          
           $cleanFolderPath = "${{ env.ONEDRIVE_FOLDER }}".Trim('/').Trim('\')
           $oneDrivePath = "$cleanFolderPath/$fileName"
-          $uri = "https://graph.microsoft.com/v1.0/me/drive/root:/$oneDrivePath:/content"
-
-          Write-Host "Uploading $fileName to OneDrive path $oneDrivePath..."
+          $uri = "https://graph.microsoft.com/v1.0/drives/$driveId/root:/$($oneDrivePath):/content"
+          
+          Write-Host "Uploading $fileName to OneDrive..."
+          Write-Host "Drive: $driveId"
+          Write-Host "Destination: $oneDrivePath"
+          
           $fileSize = (Get-Item $appPath).Length
           Write-Host "File size: $([math]::Round($fileSize / 1MB, 2)) MB"
-
+          
           try {
             $response = Invoke-RestMethod -Uri $uri `
               -Headers @{ Authorization = "Bearer $token"; "Content-Type" = "application/octet-stream" } `
               -Method PUT `
               -InFile $appPath
-
+            
             Write-Host "✓ Upload successful!"
-            Write-Host "OneDrive URL: $($response.webUrl)"
+            Write-Host "File ID: $($response.id)"
+            if ($response.webUrl) {
+              Write-Host "OneDrive URL: $($response.webUrl)"
+            }
           } catch {
             Write-Error "Failed to upload file: $($_.Exception.Message)"
             Write-Host "URI attempted: $uri"
