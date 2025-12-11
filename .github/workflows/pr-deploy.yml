@@ -27,17 +27,15 @@ jobs:
       - name: Increment Version
         id: version
         run: |
-          # Find app.json location
-          if (Test-Path "app.json") {
-            $appJsonPath = "app.json"
-          } elseif (Test-Path "PurchaseOrder/app.json") {
-            $appJsonPath = "PurchaseOrder/app.json"
-            Set-Location "PurchaseOrder"
-          } else {
-            Write-Error "app.json not found"
+          $appJsonPath = "src/app.json"
+          
+          if (-not (Test-Path $appJsonPath)) {
+            Write-Error "app.json not found at: $appJsonPath"
+            Get-ChildItem -Recurse -Filter "app.json" | ForEach-Object { Write-Host "Found: $($_.FullName)" }
             exit 1
           }
           
+          Write-Host "Reading app.json from: $appJsonPath"
           $appJson = Get-Content $appJsonPath -Raw | ConvertFrom-Json
           $version = [Version]$appJson.version
           Write-Host "Current version: $($version.ToString())"
@@ -46,7 +44,8 @@ jobs:
           Write-Host "New version: $($newVersion.ToString())"
           
           $appJson.version = $newVersion.ToString()
-          $appJson | ConvertTo-Json -Depth 10 | Set-Content "app.json" -Encoding UTF8
+          $appJson | ConvertTo-Json -Depth 10 | Set-Content $appJsonPath -Encoding UTF8
+          Write-Host "Version updated in $appJsonPath"
           
           echo "APP_VERSION=$($newVersion.ToString())" >> $env:GITHUB_ENV
           echo "APP_NAME=$($appJson.publisher)_$($appJson.name)_$($newVersion.ToString()).app" >> $env:GITHUB_ENV
@@ -66,22 +65,29 @@ jobs:
       - name: Compile BC App
         run: |
           Write-Host "Compiling Business Central Application..."
-          Write-Host "Publisher: $((Get-Content app.json | ConvertFrom-Json).publisher)"
-          Write-Host "App Name: $((Get-Content app.json | ConvertFrom-Json).name)"
+          
+          if (Test-Path "src/app.json") {
+            $appJson = Get-Content "src/app.json" -Raw | ConvertFrom-Json
+            Write-Host "Publisher: $($appJson.publisher)"
+            Write-Host "App Name: $($appJson.name)"
+          }
           Write-Host "Version: $env:APP_VERSION"
           
-          # Usar el compilador de AL (alc.exe) o BcContainerHelper
-          # Por ahora usamos el .app existente como template
-          if (Test-Path "*.app") {
-            Write-Host "✓ App file found, using existing compilation"
-            $existingApp = Get-Item "*.app" | Select-Object -First 1
+          # Buscar archivo .app recursivamente
+          Write-Host "Searching for .app files..."
+          $existingApp = Get-ChildItem -Path . -Filter "*.app" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1
+          
+          if ($existingApp) {
+            Write-Host "✓ App file found at: $($existingApp.FullName)"
             $newAppName = $env:APP_NAME
-            if ($existingApp.Name -ne $newAppName) {
-              Copy-Item $existingApp.FullName $newAppName
-              Write-Host "✓ Renamed app to: $newAppName"
-            }
+            $outputPath = $newAppName
+            
+            Copy-Item $existingApp.FullName $outputPath -Force
+            Write-Host "✓ Copied and renamed app to: $newAppName"
           } else {
-            Write-Host "❌ No .app file found. Compilation step needed."
+            Write-Host "❌ No .app file found in repository."
+            Write-Host "Files in current directory:"
+            Get-ChildItem -Recurse | Select-Object FullName | Format-Table
             exit 1
           }
           
