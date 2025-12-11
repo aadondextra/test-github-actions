@@ -3,7 +3,7 @@ name: Deploy Business Central App
 on:
   pull_request:
     branches:
-      - Deploy
+      - deploy
 
 jobs:
   build-and-upload:
