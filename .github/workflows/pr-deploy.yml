@@ -27,7 +27,7 @@ jobs:
       - name: Increment Version
         id: version
         run: |
-          $appJsonPath = "src/app.json"
+          $appJsonPath = "app.json"
           
           if (-not (Test-Path $appJsonPath)) {
             Write-Error "app.json not found at: $appJsonPath"
@@ -66,8 +66,8 @@ jobs:
         run: |
           Write-Host "Compiling Business Central Application..."
           
-          if (Test-Path "src/app.json") {
-            $appJson = Get-Content "src/app.json" -Raw | ConvertFrom-Json
+          if (Test-Path "app.json") {
+            $appJson = Get-Content "app.json" -Raw | ConvertFrom-Json
             Write-Host "Publisher: $($appJson.publisher)"
             Write-Host "App Name: $($appJson.name)"
           }
