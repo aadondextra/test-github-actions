@@ -119,36 +119,62 @@ jobs:
             exit 1
           }
           
-          # Get user ID from secrets (you need to add ONEDRIVE_USER_ID secret)
-          $userId = "${{ secrets.ONEDRIVE_USER_ID }}"
+          $userEmail = "${{ secrets.ONEDRIVE_USER_ID }}"
           
-          if ([string]::IsNullOrEmpty($userId)) {
-            Write-Error "ONEDRIVE_USER_ID secret is required. Add your user email or ID to GitHub secrets."
-            Write-Host "Example: user@company.com or user-id-guid"
+          if ([string]::IsNullOrEmpty($userEmail)) {
+            Write-Error "ONEDRIVE_USER_ID secret is required."
+            exit 1
+          }
+          
+          Write-Host "Getting Drive ID for user: $userEmail"
+          
+          # First, get the drive ID from the user email
+          try {
+            $drivesResponse = Invoke-RestMethod `
+              -Uri "https://graph.microsoft.com/v1.0/users/$userEmail/drives" `
+              -Headers @{ Authorization = "Bearer $token" } `
+              -Method GET
+            
+            if ($drivesResponse.value -and $drivesResponse.value.Count -gt 0) {
+              $driveId = $drivesResponse.value[0].id
+              Write-Host "✓ Drive ID found: $driveId"
+            } else {
+              Write-Error "No drives found for user $userEmail"
+              exit 1
+            }
+          } catch {
+            Write-Error "Failed to get drive ID: $($_.Exception.Message)"
+            Write-Host "Make sure the user has OneDrive provisioned and app has Sites.Read.All permission"
             exit 1
           }
           
           $cleanFolderPath = "${{ env.ONEDRIVE_FOLDER }}".Trim('/').Trim('\')
           $oneDrivePath = "$cleanFolderPath/$fileName"
-          $uri = "https://graph.microsoft.com/v1.0/users/$userId/drive/root:/$($oneDrivePath):/content"
-
+          $uri = "https://graph.microsoft.com/v1.0/drives/$driveId/root:/$($oneDrivePath):/content"
+          
           Write-Host "Uploading $fileName to OneDrive..."
-          Write-Host "User: $userId"
+          Write-Host "Drive: $driveId"
           Write-Host "Destination: $oneDrivePath"
           
-          $fileContent = [System.IO.File]::ReadAllBytes($appPath)
-          $fileSize = $fileContent.Length
+          $fileSize = (Get-Item $appPath).Length
           Write-Host "File size: $([math]::Round($fileSize / 1MB, 2)) MB"
           
-          $response = Invoke-RestMethod -Uri $uri `
-            -Headers @{ Authorization = "Bearer $token" } `
-            -Method PUT `
-            -InFile $appPath `
-            -ContentType "application/octet-stream"
-          
-          Write-Host "✓ Upload successful!"
-          Write-Host "File ID: $($response.id)"
-          Write-Host "OneDrive URL: $($response.webUrl)"
+          try {
+            $response = Invoke-RestMethod -Uri $uri `
+              -Headers @{ Authorization = "Bearer $token"; "Content-Type" = "application/octet-stream" } `
+              -Method PUT `
+              -InFile $appPath
+            
+            Write-Host "✓ Upload successful!"
+            Write-Host "File ID: $($response.id)"
+            if ($response.webUrl) {
+              Write-Host "OneDrive URL: $($response.webUrl)"
+            }
+          } catch {
+            Write-Error "Failed to upload file: $($_.Exception.Message)"
+            Write-Host "URI attempted: $uri"
+            exit 1
+          }
 
       - name: Upload Artifact to GitHub
         uses: actions/upload-artifact@v4
